@@ -1,60 +1,30 @@
 <template>
   <v-app>
-    <v-card class="mx-auto mt-5" width="400">
-      <v-card-title primary-title> Login </v-card-title>
-      <v-card-text>
-        <v-form>
-          <v-text-field
-            prepend-icon="mdi-account-circle"
-            name="username"
-            label="Username"
-            id="username"
-            autofocus
-          ></v-text-field>
-          <v-select
-            v-model="e1"
-            :items="items"
-            label="State"
-            prepend-icon="mdi-media-network-outline"
-          ></v-select>
-          <v-text-field
-            prepend-icon="mdi-lock"
-            name="password"
-            label="Password"
-            id="password"
-            single-line
-            :type="showPassword ? 'text' : 'password'"
-            :append-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
-            @click:append="showPassword = !showPassword"
-          />
-          <v-divider></v-divider>
-          <v-card-actions>
-            <v-btn color="danger">Register</v-btn>
-            <v-spacer></v-spacer>
-            <v-btn type="submit" color="success">
-              <v-icon>mdi-sign-in</v-icon> Login</v-btn
-            >
-          </v-card-actions>
-        </v-form>
-      </v-card-text>
-    </v-card>
+    <NavBar />
+
+    <AppContent />
   </v-app>
 </template>
 
 <script>
+import NavBar from "./components/NavBar";
+import AppContent from "./components/AppContent";
 export default {
   name: "App",
-
+  components: {
+    NavBar: NavBar,
+    AppContent: AppContent,
+  },
   data: () => ({
-    showPassword: false,
+    navigation: false,
     items: [
-      "Provience 1",
-      "Provience 2",
-      "Provience 3",
-      "Provience 4",
-      "Provience 5",
-      "Provience 6",
-      "Provience 7",
+      { name: "Provience 1", icon: "mdi-github" },
+      { name: "Provience 2", icon: "mdi-git" },
+      { name: "Provience 3", icon: "mdi-charity" },
+      { name: "Provience 4", icon: "mdi-google-controller-off" },
+      { name: "Provience 5", icon: "mdi-microsoft-excel" },
+      { name: "Provience 6", icon: "mdi-microsoft-word" },
+      { name: "Provience 7", icon: "mdi-source-branch" },
     ],
   }),
 };
