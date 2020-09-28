@@ -12,7 +12,11 @@
     <!-- Movie Add Dialog -->
     <v-dialog v-model="dialog" temporary max-width="800px">
       <v-card>
-        <v-img height="300px" src="/images/form-background.jpg"></v-img>
+        <v-img
+          width="auto"
+          height="300px"
+          src="/images/form-background.jpg"
+        ></v-img>
         <v-card-title>
           <span class="headline"><b>Add a Movie</b></span>
         </v-card-title>
@@ -149,32 +153,28 @@
     </v-dialog>
     <!-- Movie Add Dialog -->
     <v-navigation-drawer v-model="showDrawerMenu" absolute temporary>
+      <v-layout column align-center justify-center>
+        <v-flex class="mt-5">
+          <v-avatar size="100">
+            <img src="/logo.png" alt="" />
+          </v-avatar>
+          <div class="deep-purple--text subheading mt-2">Nirdesh pokharel</div>
+        </v-flex>
+      </v-layout>
+      <v-divider></v-divider>
       <v-list nav dense>
         <v-list-item-group
-          v-model="group"
+          v-for="item in items"
+          :key="item.name"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-layout column align-center justify-center>
-            <v-flex class="mt-5">
-              <v-avatar size="100">
-                <img src="/logo.png" alt="" />
-              </v-avatar>
-              <div class="deep-purple--text subheading mt-2">
-                Nirdesh pokharel
-              </div>
-            </v-flex>
-          </v-layout>
-          <v-divider></v-divider>
-          <v-list-item
-            v-for="item in items"
-            :key="item.name"
-            class="my-2"
-            @click="showDrawerMenu = false"
-          >
+          <v-list-item router :to="item.path" class="my-2" @click="showDrawerMenu = false">
             <v-list-item-icon>
               <v-icon> {{ item.icon }} </v-icon>
             </v-list-item-icon>
-            <v-list-item-title> {{ item.name }} </v-list-item-title>
+            <v-list-item-title>
+              {{ item.name }}
+            </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -192,19 +192,14 @@ export default {
     downloadLink: "",
     thumbLink: "",
     trailerLink: "",
-    selectedCategories:[],
+    selectedCategories: [],
     year: "",
     ratingValue: 2,
     categories: [],
     inputRules: [(v) => v.length >= 3 || "Minimum length is 3 character"],
     items: [
-      { name: "Provience 1", icon: "mdi-github" },
-      { name: "Provience 2", icon: "mdi-git" },
-      { name: "Provience 3", icon: "mdi-charity" },
-      { name: "Provience 4", icon: "mdi-google-controller-off" },
-      { name: "Provience 5", icon: "mdi-microsoft-excel" },
-      { name: "Provience 6", icon: "mdi-microsoft-word" },
-      { name: "Provience 7", icon: "mdi-source-branch" },
+      { name: "Home", icon: "mdi-github", path: "/" },
+      { name: "Add Category", icon: "mdi-git", path: "/add-a-category" },
     ],
   }),
   methods: {
