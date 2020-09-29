@@ -200,6 +200,7 @@ export default {
     items: [
       { name: "Home", icon: "mdi-github", path: "/" },
       { name: "Add Category", icon: "mdi-git", path: "/add-a-category" },
+      { name: "Developer", icon: "mdi-account", path: "/developer" },
     ],
   }),
   methods: {

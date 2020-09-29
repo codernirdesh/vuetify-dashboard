@@ -70,10 +70,7 @@ export default {
         db.collection("Categories")
           .doc("aL4uYvWcOTjWAMab2s8x")
           .update(data)
-          .then(() => {
-            this.newCategory = "";
-            console.log("Updated !");
-          });
+          .then(() => {});
       }
     },
   },

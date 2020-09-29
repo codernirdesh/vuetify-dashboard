@@ -17,35 +17,53 @@
         :key="movie.id"
         sm="12"
         md="6"
-        lg="4"
-        xl="3"
+        lg="3"
+        xl="2"
       >
-        <v-hover>
-          <v-card class="pa-2">
-            <v-img height="250" :src="movie.imageURL"></v-img>
-            <!-- <v-card-media :src="movie.imageURL" height="200px"> </v-card-media> -->
-            <v-card-title primary-title>
-              <div>
-                <h3 class="headline mb-0">
-                  <b>{{ movie.title }}</b>
-                </h3>
-                <div class="my-2">
-                  <v-chip
-                    class="mx-1"
-                    outlined
-                    v-for="category in movie.categories"
-                    :key="category"
-                    small
-                  >
-                    {{ category }}
-                  </v-chip>
-                </div>
-                <div class="text-subtitle-2">{{ movie.description }}</div>
+        <v-card elevation="5">
+          <v-img height="250" :src="movie.imageURL"></v-img>
+          <!-- <v-card-media :src="movie.imageURL" height="200px"> </v-card-media> -->
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline ma-0">
+                <b>{{ movie.title }}</b>
+              </h3>
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <span v-bind="attrs" v-on="on">
+                    <v-rating
+                      dense
+                      :rules="inputRules"
+                      color="orange"
+                      empty-icon="mdi-star-outline"
+                      full-icon="mdi-star"
+                      half-icon="mdi-star-half-full"
+                      half-increments
+                      length="5"
+                      :value="movie.rating"
+                      readonly
+                      size="20"
+                    />
+                  </span>
+                </template>
+                <span> {{ movie.rating }} /10 </span>
+              </v-tooltip>
+              <div class="my-2">
+                <v-chip
+                  class="mx-1"
+                  outlined
+                  v-for="category in movie.categories"
+                  :key="category"
+                  small
+                >
+                  {{ category }}
+                </v-chip>
               </div>
-            </v-card-title>
-            <v-flex> </v-flex>
-          </v-card>
-        </v-hover>
+              <div class="text-subtitle-2">{{ movie.description }}</div>
+            </div>
+          </v-card-title>
+          <v-flex> </v-flex>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
