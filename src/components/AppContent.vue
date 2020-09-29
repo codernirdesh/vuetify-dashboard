@@ -25,9 +25,11 @@
           <!-- <v-card-media :src="movie.imageURL" height="200px"> </v-card-media> -->
           <v-card-title primary-title>
             <div>
-              <h3 class="headline ma-0">
-                <b>{{ movie.title }}</b>
-              </h3>
+              <a :href="movie.downloadLink" class="headline np-link">
+                <h3 class="headline ma-0">
+                  <b>{{ movie.title }}</b>
+                </h3>
+              </a>
               <v-tooltip right>
                 <template v-slot:activator="{ on, attrs }">
                   <span v-bind="attrs" v-on="on">
@@ -86,5 +88,15 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.np-link{
+  text-decoration: none;
+  color: black;
+  transition: all 400ms ease-out;
+  :hover{
+    transform: scale(1.05);
+    color: rgb(34, 34, 34);
+    transition: all 300ms ease-in-out;
+  }
+}
 </style>

@@ -156,9 +156,9 @@
       <v-layout column align-center justify-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
-            <img src="/logo.png" alt="" />
+            <img src="https://scontent.fbir2-1.fna.fbcdn.net/v/t1.0-1/p160x160/116742782_680119839207331_6047042267295501737_o.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=xr5pekAdpDIAX-tBnAT&_nc_ht=scontent.fbir2-1.fna&tp=6&oh=c34dc8b073521125e0d5dddf902a4b24&oe=5F99BEAC" alt="" />
           </v-avatar>
-          <div class="deep-purple--text subheading mt-2">Nirdesh pokharel</div>
+          <div class="deep-purple--text heading mt-2">Nirdesh pokharel</div>
         </v-flex>
       </v-layout>
       <v-divider></v-divider>
